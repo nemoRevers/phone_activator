@@ -4,4 +4,5 @@ abstract class NumbersRepository{
   Future<List<BuyModel>>  getNumbers();
   void addNumber(BuyModel buyInfo);
   void removeNumber(int index){}
+  void dispose();
 }

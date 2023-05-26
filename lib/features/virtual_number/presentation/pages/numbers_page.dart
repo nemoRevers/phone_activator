@@ -6,9 +6,14 @@ import 'package:phone_activator/features/virtual_number/presentation/components/
 
 import '../bloc/numbers/numbers_bloc.dart';
 
-class NumbersPage extends StatelessWidget {
+class NumbersPage extends StatefulWidget {
   const NumbersPage({Key? key}) : super(key: key);
 
+  @override
+  State<NumbersPage> createState() => _NumbersPageState();
+}
+
+class _NumbersPageState extends State<NumbersPage> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NumbersBloc, NumbersState>(
@@ -38,6 +43,12 @@ class NumbersPage extends StatelessWidget {
         }
       },
     );
+  }
+
+  @override
+  void dispose() {
+    locator.get<NumbersBloc>().dispose();
+    super.dispose();
   }
 }
 

@@ -12,7 +12,7 @@ part 'numbers_event.dart';
 part 'numbers_state.dart';
 
 class NumbersBloc extends Bloc<NumbersEvent, NumbersState> {
-  final NumbersRepository _numbersRepository = const NumbersImpl();
+  final NumbersRepository _numbersRepository = NumbersImpl();
   final CancelActivationRepository _cancelActivationRepository =
       CancelActivationImpl();
   List<BuyModel> models = [];
@@ -32,5 +32,9 @@ class NumbersBloc extends Bloc<NumbersEvent, NumbersState> {
       _numbersRepository.removeNumber(event.index);
       emit(NumbersLoaded(models));
     });
+  }
+
+  void dispose(){
+    _numbersRepository.dispose();
   }
 }

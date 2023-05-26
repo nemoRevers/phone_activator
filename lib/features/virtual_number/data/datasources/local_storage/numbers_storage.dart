@@ -47,37 +47,3 @@ class NumbersBoxStorage{
     return Hive.openBox<T>(name);
   }
 }
-
-// class NumbersStorage {
-//   SharedPreferences? _sharedPreferences;
-//   NumbersStorage(){
-//     initStorage();
-//   }
-//
-//   void initStorage() async {
-//     _sharedPreferences ??= await SharedPreferences.getInstance();
-//   }
-//
-//   void addNumber(BuyModel buyInfo) async {
-//     int numbersCount = _sharedPreferences?.getInt('count') ?? 0;
-//     _sharedPreferences ??= await SharedPreferences.getInstance();
-//     _sharedPreferences!.setString(
-//       '${numbersCount += 1}',
-//       jsonEncode(buyInfo.toJson()),
-//     );
-//     print(json.encode(buyInfo.toJson()));
-//     _sharedPreferences?.setInt('count', numbersCount);
-//     print(_sharedPreferences!.getString(numbersCount.toString()));
-//   }
-//
-//   Future<List<BuyModel>> getNumbers() async {
-//     final int numbersCount = _sharedPreferences?.getInt('count') ?? 0;
-//     _sharedPreferences ??= await SharedPreferences.getInstance();
-//     final List<BuyModel> models = [];
-//     for (int i = 1; i <= numbersCount; i++) {
-//       final modelString = _sharedPreferences!.getString(i.toString());
-//       models.add(BuyModel.fromJson(jsonDecode(modelString!) as Map<String,dynamic>));
-//     }
-//     return models;
-//   }
-// }
